@@ -9,18 +9,16 @@ type Exercise = {
   name: string
   sets: number
   reps: string
-  completedSets?: number
 }
 
-// Upper body workout data
 const upperBodyWorkout: Exercise[] = [
-  { name: "Bent Over Dumbbell Row", sets: 4, reps: "8", completedSets: 0 },
-  { name: "Dumbbell Bench Press", sets: 4, reps: "8", completedSets: 0 },
-  { name: "Dumbbell Lateral Raise", sets: 3, reps: "8", completedSets: 0 },
-  { name: "Dumbbell Pullover", sets: 3, reps: "8", completedSets: 0 },
-  { name: "Dumbbell Bicep Curl", sets: 2, reps: "8", completedSets: 0 },
-  { name: "Dumbbell Tricep Extension", sets: 2, reps: "8", completedSets: 0 },
-  { name: "Dumbbell Shrug", sets: 2, reps: "12", completedSets: 0 },
+  { name: "Bent Over Dumbbell Row", sets: 4, reps: "8", },
+  { name: "Dumbbell Bench Press", sets: 4, reps: "8" },
+  { name: "Dumbbell Lateral Raise", sets: 3, reps: "8" },
+  { name: "Dumbbell Pullover", sets: 3, reps: "8" },
+  { name: "Dumbbell Bicep Curl", sets: 2, reps: "8" },
+  { name: "Dumbbell Tricep Extension", sets: 2, reps: "8" },
+  { name: "Dumbbell Shrug", sets: 2, reps: "12" },
 ]
 
 export default function Component() {
