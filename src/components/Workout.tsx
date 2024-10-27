@@ -94,27 +94,28 @@ export default function Component() {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="flex justify-between items-center mb-4">
-            <Button
+          <div className="flex items-center justify-center mb-4">
+
+            {/*<Button
               onClick={prevExercise}
               disabled={currentExerciseIndex === 0}
               size="icon"
               variant="ghost"
             >
               <ChevronLeft className="h-4 w-4" />
-            </Button>
+            </Button>*/}
             <h2 className="text-xl font-semibold flex items-center">
               {currentExercise?.name}
               <HelpCircle className="h-4 w-4 ml-2 text-gray-400" />
             </h2>
-            <Button
+            {/*<Button
               onClick={nextExercise}
               disabled={currentExerciseIndex === upperBodyWorkout.length - 1}
               size="icon"
               variant="ghost"
             >
               <ChevronRight className="h-4 w-4" />
-            </Button>
+            </Button> */}
           </div>
           <div className="aspect-video bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
             <span className="text-gray-400">Exercise illustration</span>

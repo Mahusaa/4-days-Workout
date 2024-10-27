@@ -1,17 +1,9 @@
 "use client";
 import { Button } from "./ui/button";
-import { useState } from "react";
 import { CheckCircle } from "lucide-react";
 
 const WeekCalendar = () => {
-  const [workedOutDays, setWorkedOutDays] = useState<string[]>([]);
-
-  const toggleWorkout = (date: string) => {
-    setWorkedOutDays((prev) =>
-      prev.includes(date) ? prev.filter((d) => d !== date) : [...prev, date]
-    );
-    console.log(workedOutDays)
-  };
+  const workedOutDays = ["Tue Oct 01 2024", "Wed Oct 02 2024",]
 
   const today = new Date();
   const startOfWeek = new Date(today.setDate(today.getDate() - today.getDay()));
@@ -34,7 +26,6 @@ const WeekCalendar = () => {
             variant={isToday ? "default" : "outline"}
             className={`relative h-16 ${isToday ? "ring-2 ring-primary" : ""} ${isWorkedOut ? "bg-green-200 hover:bg-green-200" : ""
               } hover:ring-2 hover:ring-primary transition-all`}
-            onClick={() => toggleWorkout(day.toDateString())}
           >
             <div className="flex flex-col items-center">
               <span className="text-sm">

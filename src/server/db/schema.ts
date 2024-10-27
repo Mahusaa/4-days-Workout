@@ -1,5 +1,6 @@
 import { relations, sql } from "drizzle-orm";
 import {
+  date,
   index,
   integer,
   pgTableCreator,
@@ -9,7 +10,7 @@ import {
   timestamp,
   varchar,
 } from "drizzle-orm/pg-core";
-import { type AdapterAccount } from "next-auth/adapters";
+import type { AdapterAccount } from "next-auth/adapters";
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
@@ -127,4 +128,13 @@ export const verificationTokens = createTable(
   (vt) => ({
     compoundKey: primaryKey({ columns: [vt.identifier, vt.token] }),
   })
+);
+
+export const workoutDays = createTable(
+  "workout_days",
+  {
+    id: serial("id").primaryKey(),
+    userId: varchar("user_id", { length: 255 }).notNull(),
+    workoutDate: date("workout_date").notNull(),
+  },
 );
