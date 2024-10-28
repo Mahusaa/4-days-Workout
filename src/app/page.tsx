@@ -1,16 +1,20 @@
 import WeekCalendar from "~/components/WeekCalendar";
 import MainWorkout from "~/components/Workout";
 import { getServerAuthSession } from "~/server/auth";
+import { redirect } from "next/navigation";
+import { getWeekCalendar } from "~/server/queries";
 
 export default async function HomePage() {
   const session = await getServerAuthSession();
-  const workoutDate = ["Mon Oct 28 2024",
-    "Sun Oct 27 2024"]
-
+  if (!session) {
+    redirect("/signin");
+  }
+  console.log(session)
+  const userId = session.user.id;
+  const workoutDate = await getWeekCalendar(userId) as string[];
 
   return (
     <>
-      <h1 className="text-2xl font-bold mb-4 text-center justify-center">Dumbbelly </h1>
       <WeekCalendar workedOutDays={workoutDate} />
       <MainWorkout />
     </>

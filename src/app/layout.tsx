@@ -2,7 +2,7 @@ import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-import { SidebarProvider, SidebarTrigger } from "~/components/ui/sidebar";
+import { SidebarProvider } from "~/components/ui/sidebar";
 import { AppSidebar } from "~/components/app-sidebar";
 
 export const metadata: Metadata = {
@@ -18,11 +18,9 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable}`}>
       <body >
         <SidebarProvider>
-          <AppSidebar />
-          <main className="container mx-auto p-4">
-            <SidebarTrigger />
+          <AppSidebar>
             {children}
-          </main>
+          </AppSidebar>
         </SidebarProvider>
       </body>
     </html>
