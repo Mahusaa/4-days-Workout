@@ -1,6 +1,6 @@
 import { sql, relations } from "drizzle-orm";
 import {
-  date,
+  json,
   index,
   integer,
   pgTableCreator,
@@ -109,6 +109,6 @@ export const verificationTokens = createTable(
 export const workoutDays = createTable("workout_days", {
   id: serial("id").primaryKey(),
   userId: varchar("user_id", { length: 255 }).notNull(),
-  workoutDate: date("workout_date").notNull(),
+  workoutDate: json("workout_date").notNull(),
 });
 

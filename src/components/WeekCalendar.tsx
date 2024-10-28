@@ -1,9 +1,22 @@
 "use client";
 import { Button } from "./ui/button";
 import { CheckCircle } from "lucide-react";
+import type { FC } from "react";
 
-const WeekCalendar = () => {
-  const workedOutDays = ["Tue Oct 01 2024", "Wed Oct 02 2024",]
+
+
+
+interface weekCalendarProps {
+  workedOutDays: string[];
+}
+
+const WeekCalendar: FC<weekCalendarProps> = ({ workedOutDays }) => {
+
+  // const toggleWorkout = (date: string) => {
+  //   setWorkedOutDays((prev) =>
+  //     prev.includes(date) ? prev.filter((d) => d !== date) : [...prev, date]
+  //   );
+  // };
 
   const today = new Date();
   const startOfWeek = new Date(today.setDate(today.getDate() - today.getDay()));
@@ -18,6 +31,7 @@ const WeekCalendar = () => {
     <div className="grid grid-cols-7 gap-2 mb-4">
       {weekDays.map((day, index) => {
         const isToday = day.toDateString() === new Date().toDateString();
+        console.log(workedOutDays)
         const isWorkedOut = workedOutDays.includes(day.toDateString());
 
         return (
