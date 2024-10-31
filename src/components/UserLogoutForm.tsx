@@ -11,6 +11,7 @@ import {
   AlertDialogTrigger,
 } from "./ui/alert-dialog";
 import { Button } from "./ui/button";
+import { useState } from "react";
 
 interface UserLogoutForm {
   children: React.ReactNode;
@@ -18,9 +19,16 @@ interface UserLogoutForm {
 
 
 const UserLogoutForm: React.FC<UserLogoutForm> = ({ children }) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const logout = async () => {
-    await signOut({ callbackUrl: "http://localhost:3000/" })
-
+    setIsLoading(true)
+    try {
+      await signOut({ callbackUrl: "http://localhost:3000/" })
+    } catch {
+      console.log("error signOut")
+    } finally {
+      setIsLoading(false)
+    }
   }
   return (
     <AlertDialog>
@@ -39,6 +47,7 @@ const UserLogoutForm: React.FC<UserLogoutForm> = ({ children }) => {
           <Button
             type='button'
             onClick={logout}
+            isLoading={isLoading}
           >Logout</Button>
         </AlertDialogFooter>
       </AlertDialogContent>

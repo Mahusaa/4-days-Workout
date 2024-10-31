@@ -121,7 +121,9 @@ export function UserFooter({
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <UserLogoutForm>
-              <DropdownMenuItem>
+              <DropdownMenuItem onSelect={(e) => {
+                e.preventDefault();
+              }}>
                 <LogOut />
                 Log out
               </DropdownMenuItem>

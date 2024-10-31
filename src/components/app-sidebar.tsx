@@ -177,11 +177,7 @@ export async function AppSidebar({ children }
   { children: React.ReactNode }) {
 
   const session = await getServerAuthSession();
-  if (!session) {
-    return redirect("/signin");
-  }
   const user = session?.user;
-  console.log(user);
   return (
     <>
       <Sidebar collapsible="icon">
@@ -281,7 +277,7 @@ export async function AppSidebar({ children }
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
-          {user ? (
+          {session ? (
             <UserFooter user={user} />
           ) : (
             <Button> SignIn </Button>
