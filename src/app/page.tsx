@@ -9,7 +9,6 @@ export default async function HomePage() {
   if (!session) {
     redirect("/signin");
   }
-  console.log(session)
   const userId = session.user.id;
   const workoutDate = await getWeekCalendar(userId) as string[];
 
