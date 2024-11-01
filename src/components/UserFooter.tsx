@@ -40,7 +40,7 @@ interface UserInterface {
 export function UserFooter({
   user
 }: {
-  user: UserInterface
+  user: UserInterface | undefined
 }) {
   return (
     <SidebarMenu>
@@ -84,7 +84,7 @@ export function UserFooter({
                     alt={user.name ?? "image"}
                   />
                   <AvatarFallback className="rounded-lg">
-                    CN
+                    {user.name?.slice(0, 2).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">

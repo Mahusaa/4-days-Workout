@@ -8,8 +8,13 @@ import {
   Command,
   GalleryVerticalEnd,
   Plus,
+  Settings,
   Settings2,
   SquareTerminal,
+  MoreHorizontal,
+  User,
+  NotebookPen,
+  BicepsFlexed
 } from "lucide-react"
 import { Separator } from "./ui/separator"
 import { Button } from "./ui/button"
@@ -57,7 +62,6 @@ import {
   SidebarTrigger,
 } from "~/components/ui/sidebar"
 import { getServerAuthSession } from "~/server/auth"
-import { redirect } from "next/navigation"
 import { UserFooter } from "./UserFooter"
 
 const data = {
@@ -85,90 +89,50 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Your Plan",
       url: "#",
-      icon: SquareTerminal,
-      isActive: true,
+      icon: NotebookPen,
+      isActive: false,
       items: [
+        {
+          title: "Program",
+          url: "#",
+        },
         {
           title: "History",
           url: "#",
         },
         {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
+          title: "Calender",
           url: "#",
         },
       ],
     },
     {
-      title: "Models",
+      title: "Spesific Muscle",
       url: "#",
-      icon: Bot,
+      icon: BicepsFlexed,
+      isActive: false,
       items: [
         {
-          title: "Genesis",
+          title: "Arm & Shoulder",
           url: "#",
         },
         {
-          title: "Explorer",
+          title: "Back & Chest",
           url: "#",
         },
         {
-          title: "Quantum",
+          title: "ABS",
+          url: "#",
+        },
+        {
+          title: "LEG",
           url: "#",
         },
       ],
     },
-    {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
+
   ],
 }
 
@@ -240,7 +204,7 @@ export async function AppSidebar({ children }
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Platform</SidebarGroupLabel>
+            <SidebarGroupLabel>Workout Plan</SidebarGroupLabel>
             <SidebarMenu>
               {data.navMain.map((item) => (
                 <Collapsible
@@ -273,6 +237,26 @@ export async function AppSidebar({ children }
                   </SidebarMenuItem>
                 </Collapsible>
               ))}
+            </SidebarMenu>
+          </SidebarGroup>
+          <SidebarGroup>
+            <SidebarMenu>
+              <SidebarMenuItem key="fjeikf">
+                <SidebarMenuButton asChild>
+                  <a href="/">
+                    <Settings2 />
+                    <span>Settings</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem key="oo">
+                <SidebarMenuButton asChild>
+                  <a href="/profile">
+                    <User />
+                    <span>Profiles</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroup>
         </SidebarContent>
